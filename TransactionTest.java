@@ -12,9 +12,9 @@ public class TransactionTest
 		
 		Account account = new Account();
 		
-		Transaction t1 = new Transaction(not sure what goes in here);
-		Transaction t2 = new Transaction(not sure what goes in here);
-		Transaction t3 = new Transaction(not sure what goes in here);
+		Transaction t1 = new Transaction(/* not sure what goes in here */); /* look at transaction constructor (string s, account a) probably needs bool deposit and double amt */
+		Transaction t2 = new Transaction(/* not sure what goes in here */);
+		Transaction t3 = new Transaction(/* not sure what goes in here */);
 		
 		ExecutorService executorService = Executors.newCachedThreadedPool();
 		

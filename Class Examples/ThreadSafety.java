@@ -71,9 +71,9 @@ class MyData
 {
 	private int count =0;
 	
-	public synchronized void addCount()
 	//shared data that is changing must be in its own class 
 	//and must be synchronized for better accuracy
+	public synchronized void addCount()
 	{
 		count++;
 	}
