@@ -15,7 +15,7 @@ public class ThreadSafety
 		ProcessingThread pt2 = new ProcessingThread("t2", myData);
 		
 		//create ExecutorService to manage threads
-		ExecutorService executorService = Executors.newCachedThreadedPool();
+		ExecutorService executorService = Executors.newCachedThreadPool();
 		
 		//start the three PrintTasks
 		executorService.execute(pt1); //start task 1
