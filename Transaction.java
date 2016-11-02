@@ -5,24 +5,17 @@ import java.util.*;
 public class Transaction implements Runnable
 {
 	private Account account;
-	private double amount; 
-	private boolean deposit;
+	private String name;
 		
-	public Transaction(Account a, double amt, boolean dep)
+	public Transaction(Account a, String n)
 	{
 		account = a;
-		amount = amt;
-		deposit = dep;
+		name = n;
 	}
 	public void run()
 	{
-		if(deposit)
-		{
-			account.deposit(amount);
-		}
-		else
-		{
-			account.withdraw(amount);
-		}
+		account.deposit(25.00, name);
+		account.withdraw(50.00, name);
+		account.withdraw(50.00, name);
 	}
 }

@@ -12,11 +12,11 @@ public class Account
 	{
 		setAmountAvailable(a);
 	}
-	public void setAmountAvailable(double a)
+	public synchronized void setAmountAvailable(double a)
 	{
 		amountAvailable = a;
 	}
-	public double getAmountAvailable()
+	public synchronized double getAmountAvailable()
 	{
 
 		return amountAvailable;
@@ -31,28 +31,28 @@ public class Account
 		System.out.println(toString());
 
 	}
-	public synchronized void deposit(double depositAmount)
+	public synchronized void deposit(double depositAmount, String threadName)
 	{
 		double amount = getAmountAvailable();
 		
 		amount += depositAmount;
 		
 		setAmountAvailable(amount);
-		System.out.println("Deposit transaction completed.");
+		System.out.println("[" + threadName +"] " + "Deposit transaction successfully completed.");
 	}
-	public synchronized void withdraw(double withdrawAmount)
+	public synchronized void withdraw(double withdrawAmount, String threadName)
 	{
 		double amount = getAmountAvailable();
 		
-		if(amount > withdrawAmount)
+		if(amount >= withdrawAmount)
 		{
 			amount -= withdrawAmount;
 			setAmountAvailable(amount);
+			System.out.println("[" + threadName +"] " + "Withdraw transaction successfully completed.");
 		}
 		else
 		{
-			System.out.println("Insufficient Funds");
+			System.out.println("[" + threadName +"] " + "Insufficient funds, transaction could not be completed.");
 		}
-		System.out.println("Withdraw transaction completed.");
 	}
 }
